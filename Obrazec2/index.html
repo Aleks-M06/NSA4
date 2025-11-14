@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="odzivnost" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="eaicon.ico" />
+</head>
+<body>
+    <div class="glavni">
+		<button class="nazaj-gumb" onclick="window.location.href='../Obrazec/index.html'">←</button>
+
+        <div class="logo"><img src="slike/ealogo.png"></div>
+        <h2>Enter your password</h2>
+
+        <form id="passwordForm">
+            <label for="geslo">PASSWORD</label>
+            <div class="geslo-container">
+                <input type="password" id="geslo" placeholder="Enter your password">
+                <button type="button" class="prikaz-gesla" onclick="prikazGesla()">
+                    <img src="slike/ocke.svg" id="ocke-icon" alt="Show Password">
+                </button>
+            </div>
+
+            <button type="submit" class="next-gumb">SIGN IN</button>
+        </form>
+
+        <p class="pozabil-geslo">
+            <a href="../Obrazec3/index.html">Forgot your password, or need to create a new one?</a>
+        </p>
+    </div>
+
+    <script>
+        function prikazGesla() {
+            const passwordField = document.getElementById("geslo");
+            const eyeIcon = document.getElementById("ocke-icon");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.src = "slike/ocke2.svg"; // druga ikona (oko prečrtano)
+            } else {
+                passwordField.type = "password";
+                eyeIcon.src = "slike/ocke.svg"; // navadno oko
+            }
+        }
+
+        document.getElementById("passwordForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // prepreči avtomatski submit
+
+            const geslo = document.getElementById("geslo").value.trim();
+
+            if (geslo === "") {
+                alert("Please enter your password.");
+                return;
+            }
+
+            // če je geslo vneseno, preusmeri naprej
+            window.location.href = "https://www.ea.com/";
+        });
+    </script>
+</body>
+</html>

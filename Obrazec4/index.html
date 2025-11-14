@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="odzivnost" content="width=device-width, initial-scale=1.0">
+    <title>SIGN IN</title>
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" type="image/x-icon" href="eaicon.ico" />
+</head>
+<body>
+    <div class="glavni">
+		<button class="nazaj-gumb" onclick="window.location.href='../Obrazec3/index.html'">←</button>
+
+        <div class="logo"><img src="slike/ealogo.png"></div>
+        <h2>Create your EA Account</h2>
+
+        <form id="createAccountForm">
+            <label for="email">EMAIL ADDRESS</label>
+            <input type="email" id="email" placeholder="Enter your email address">
+
+            <label for="eaid">EA ID</label>
+            <input type="text" id="eaid" placeholder="Enter your EA ID">
+            <p class="eaid-opis">This is how your friends can find you in the EA app or in EA games. Your EA ID must be 4–16 characters long.</p>
+
+            <label for="geslo">PASSWORD</label>
+            <div class="geslo-container">
+                <input type="password" id="geslo" placeholder="Enter your password">
+                <button type="button" class="prikaz-gesla" onclick="prikazGesla()">
+                    <img src="slike/ocke.svg" id="ocke-icon" alt="Show Password">
+                </button>
+            </div>
+
+            <ul class="geslo-zahteve">
+                <li id="dolzina"><span class="x">✖</span> 8–64 characters</li>
+                <li id="mala"><span class="x">✖</span> At least 1 lowercase letter</li>
+                <li id="velika"><span class="x">✖</span> At least 1 uppercase letter</li>
+                <li id="stevka"><span class="x">✖</span> At least 1 number</li>
+            </ul>
+
+            <button type="submit" class="next-gumb">SIGN IN</button>
+        </form>
+    </div>
+
+    <script>
+    // funkcija za prikaz/skrivanje gesla
+    function prikazGesla() {
+        const passwordField = document.getElementById("geslo");
+        const eyeIcon = document.getElementById("ocke-icon");
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.src = "slike/ocke2.svg";
+        } else {
+            passwordField.type = "password";
+            eyeIcon.src = "slike/ocke.svg";
+        }
+    }
+
+    // posodobitev pogojev za geslo
+    document.getElementById("geslo").addEventListener("input", function () {
+        const geslo = this.value;
+
+        const dolzina = geslo.length >= 8 && geslo.length <= 64;
+        const mala = /[a-z]/.test(geslo);
+        const velika = /[A-Z]/.test(geslo);
+        const stevka = /[0-9]/.test(geslo);
+
+        posodobi("dolzina", dolzina);
+        posodobi("mala", mala);
+        posodobi("velika", velika);
+        posodobi("stevka", stevka);
+    });
+
+    function posodobi(id, pogoj) {
+        const vrstica = document.getElementById(id);
+        const znak = vrstica.querySelector("span");
+
+        if (pogoj) {
+            znak.textContent = "✓";
+            znak.style.color = "#4CAF50";
+            vrstica.style.color = "#4CAF50";
+        } else {
+            znak.textContent = "✗";
+            znak.style.color = "#ff4d4d";
+            vrstica.style.color = "#ff4d4d";
+        }
+    }
+
+    // preverjanje ob oddaji
+    document.getElementById("createAccountForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const eaid = document.getElementById("eaid").value.trim();
+        const geslo = document.getElementById("geslo").value;
+
+        let manjkajo = [];
+
+        // preveri email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === "") {
+            manjkajo.push("email address");
+            document.getElementById("email").style.border = "2px solid #ff4d4d";
+        } else if (!emailRegex.test(email)) {
+            document.getElementById("email").style.border = "2px solid #ff4d4d";
+            alert("Please enter a valid email address.");
+            return;
+        } else {
+            document.getElementById("email").style.border = "1px solid #ccc";
+        }
+
+        // preveri EA ID
+        if (eaid === "") {
+            manjkajo.push("EA ID");
+        } else if (eaid.length < 4 || eaid.length > 16) {
+            document.getElementById("eaid").style.border = "2px solid #ff4d4d";
+            alert("Your EA ID must be between 4 and 16 characters long.");
+            return;
+        } else {
+            document.getElementById("eaid").style.border = "1px solid #ccc";
+        }
+
+        // preveri geslo
+        const dolzina = geslo.length >= 8 && geslo.length <= 64;
+        const mala = /[a-z]/.test(geslo);
+        const velika = /[A-Z]/.test(geslo);
+        const stevka = /[0-9]/.test(geslo);
+
+        if (geslo === "") {
+            manjkajo.push("password");
+        } else if (!dolzina || !mala || !velika || !stevka) {
+            alert("Your password must be 8–64 characters long and include at least one lowercase letter, one uppercase letter, and one number.");
+            return;
+        }
+
+        // če manjka karkoli
+        if (manjkajo.length > 0) {
+            alert("Please enter your " + manjkajo.join(", ") + ".");
+            return;
+        }
+
+        // vse vneseno pravilno
+        window.location.href = "https://www.ea.com/";
+    });
+</script>
+
+
+</body>
+</html>

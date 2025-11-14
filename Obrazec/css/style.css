@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1d2e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px; /* prostor na vrhu in spodaj */
+    box-sizing: border-box; /*za odmike upošteva vsebina+border+padding*/
+}
+
+.glavni {
+    background-color: #222540;
+    padding: 40px;
+    border-radius: 12px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4); /* 0 vertikalno, 0 horizontalno, 25 zamegljenost (red,green,blue, prosojnost)*/
+    
+	
+    margin: auto 0; /*centriranje znotraj odzivnosti levo/desno 0px zgoraj/spodaj avtomatsko*/
+}
+
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;  /*kako se slika prilagaja velikosti okvirja (cover zapolni do okvirja/contain razmerje enako vendar znotraj okvrirja*/
+}
+
+
+h2 {
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.login-gumbi {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.login-gumbi button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px; /* kvadratni robovi, ne krog */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+    padding: 0;
+}
+
+.login-gumbi img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: white;
+    transition: all 0.25s ease;
+}
+
+.login-gumbi button:hover img { /*hover dvigne in osvetli*/
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(53, 114, 244, 0.4);
+}
+
+
+.divider {	/*namesto <br>*/
+    margin: 20px 0;
+    position: relative;
+}
+
+.divider::before, 	
+.divider::after {
+    content: "";
+    position: absolute;
+    width: 45%;
+    height: 1px;
+    background: #444;
+    top: 50%; /*vertikalno centriranje*/
+}
+
+.divider::before { left: 0; } /*prva črta na levi*/
+.divider::after { right: 0; } /*druga na desni*/
+
+.divider span { /*besedilo med črtama*/
+    background-color: #222540;
+    padding: 0 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+form { text-align: left; }
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #ccc;
+}
+
+input[type="text"] {	
+    width: 94%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #2b2f4a;
+    color: white;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+input[type="text"]:focus { 	/*obroba*/
+    outline: 2px solid #3572f4;
+}
+
+.zapomni {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    font-size: 13px;
+}
+
+.next-gumb {
+    width: 100%;
+    padding: 12px;
+    background-color: #3572f4;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.next-gumb:hover {
+    background-color: #4a86ff;
+    box-shadow: 0 4px 10px rgba(74, 134, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.pozabil-geslo {
+    margin: 18px 0;
+    font-size: 13px;
+}
+
+.pozabil-geslo a {
+    color: #3572f4;
+    text-decoration: none;
+}
+
+.pozabil-geslo a:hover {
+    text-decoration: underline;
+}
+
+.ustvari-gumb {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 1.5px solid #3572f4;
+    color: #3572f4;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.ustvari-gumb:hover {
+    background-color: #3572f4;
+    color: white;
+    box-shadow: 0 4px 10px rgba(74, 134, 255, 0.4);
+    transform: translateY(-2px);
+}

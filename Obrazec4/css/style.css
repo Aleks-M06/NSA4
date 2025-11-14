@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1d2e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px; /* prostor na vrhu in spodaj */
+    box-sizing: border-box;
+}
+
+.glavni {
+    background-color: #222540;
+    padding: 40px;
+    border-radius: 12px;
+    width: 360px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    margin: auto 0; /*centriranje znotraj odzivnosti levo/desno 0px zgoraj/spodaj avtomatsko*/
+	position: relative; 
+}
+
+.nazaj-gumb {
+    position: absolute; /*da je gumb znotraj glavnega diva*/
+    top: 20px;
+    left: 20px;
+    background-color: #2b2f4a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 6px 12px;
+    transition: all 0.25s ease;
+}
+
+.nazaj-gumb:hover {
+    background-color: #3572f4;
+    box-shadow: 0 3px 10px rgba(53, 114, 244, 0.4);
+    transform: translateY(-2px);
+}
+
+.logo img {
+    max-height: 60px;
+    max-width: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #ccc;
+}
+
+.geslo-container {	/* polje za geslo + gumb za prikaz */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.geslo-container input[type="password"],
+.geslo-container input[type="text"] {   	/*kdr klikneš očke, da ti ostane isti input conteiner*/
+    width: 100%;
+    padding: 12px 45px 12px 12px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #2b2f4a;
+    color: white;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.geslo-container input:focus {
+    outline: 2px solid #3572f4;
+}
+
+.prikaz-gesla {
+    position: absolute;
+    right: 8px;
+	top: 6px;		/*da se gumb od wčka premakne gor na sredino vrstice*/
+    background-color: #2b2f4a;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.prikaz-gesla:hover {
+    background-color: #32365a;
+}
+
+.prikaz-gesla img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+    filter: invert(1);
+}
+
+.next-gumb {
+    width: 100%;
+    padding: 12px;
+    background-color: #3572f4;
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.next-gumb:hover {
+    background-color: #4a86ff;
+    box-shadow: 0 4px 10px rgba(74, 134, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.pozabil-geslo {
+    margin: 18px 0;
+    font-size: 13px;
+}
+
+.pozabil-geslo a {
+    color: #3572f4;
+    text-decoration: none;
+}
+
+.pozabil-geslo a:hover {
+    text-decoration: underline;
+}
+
+input[type="email"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    background-color: #2b2f4a;
+    color: white;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: 2px solid #3572f4;
+}
+
+.eaid-opis {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.geslo-zahteve {
+    list-style: none;
+    padding-left: 0;
+    font-size: 13px;
+    color: #ff4d4d;
+    margin-bottom: 20px;
+}
+
+.geslo-zahteve li {
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.geslo-zahteve .x {
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+.geslo-zahteve .x {
+    font-weight: bold;
+    min-width: 16px;
+    display: inline-block;
+}
