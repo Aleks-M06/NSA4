@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="glavni">
-		<button class="nazaj-gumb" onclick="window.location.href='../Obrazec/index.html'">←</button>
+		<button class="nazaj-gumb" onclick="window.location.href='../index.html'">←</button>
 
         <div class="logo"><img src="slike/ealogo.png"></div>
         <h2>Enter your password</h2>
@@ -47,7 +47,6 @@
         document.getElementById("passwordForm").addEventListener("submit", function(event) {
             event.preventDefault(); // prepreči avtomatski submit
 
-            const geslo = document.getElementById("geslo").value.trim();
 
             if (geslo === "") {
                 alert("Please enter your password.");
@@ -60,3 +59,4 @@
     </script>
 </body>
 </html>
+
